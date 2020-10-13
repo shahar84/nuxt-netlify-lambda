@@ -10,7 +10,7 @@
     "build:server": "netlify-lambda build server",
     "start:server": "netlify-lambda serve server -p 9090",
     "dev:client": "nuxt",
-    "build:client": "nuxt build",
+    "build:client": "nuxt generate",
     "start:client": "nuxt",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
