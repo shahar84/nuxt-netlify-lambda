@@ -1,4 +1,4 @@
-
+import { getExample } from '~/clients/exampleClient'
 
 export const state = () => ({
   counter: 0,
@@ -9,8 +9,8 @@ export const mutations = {
   increment(state) {
     state.counter++
   },
-  getExampleData(state, data) {
-    state.example = data
+  getExampleData(state, payload) {
+    state.example = payload
   },
 }
 
@@ -19,7 +19,8 @@ export const actions = {
     commit('increment')
   },
 
-  getExampleData() {
-
+  async getExampleData({ commit }) {
+    const { data } = await getExample()
+    commit('getExampleData', data)
   },
 }

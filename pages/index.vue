@@ -5,6 +5,7 @@
         {{ names }}
         <v-btn @click="click">{{ counter }}</v-btn>
       </div>
+      <v-card>{{ example }}</v-card>
     </v-col>
   </v-row>
 </template>
@@ -14,21 +15,21 @@ export default {
   data() {
     return {
       names: ['Shahar', 'Yonatan'],
-      example: 'Static',
     }
   },
   computed: {
     counter() {
       return this.$store.state.exampleStore.counter
     },
+    example() {
+      return this.$store.state.exampleStore.example
+    },
   },
   methods: {
     click() {
       this.$store.dispatch('exampleStore/increment')
+      this.$store.dispatch('exampleStore/getExampleData')
     },
-  },
-  async fetch() {
-    this.example = await fetch('/').then((res) => res.json())
   },
 }
 </script>

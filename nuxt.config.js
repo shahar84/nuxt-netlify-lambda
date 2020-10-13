@@ -1,9 +1,16 @@
 import colors from 'vuetify/es5/util/colors'
 
+const isDev = process.env.NODE_ENV === 'dev'
+
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
+  env: {
+    baseUrl: isDev
+      ? 'http://localhost:9090/.netlify/functions/app'
+      : '/.netlify/functions/app',
+  },
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
 
